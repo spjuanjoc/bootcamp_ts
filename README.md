@@ -1,4 +1,4 @@
-# Hello World in TypeScript
+# Bootcamp for TypeScript
 
 Create a "Hello World" project in TypeScript using WebStorm IDE from  JetBrains. 
 
