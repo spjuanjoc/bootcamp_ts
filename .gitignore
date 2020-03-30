@@ -4,10 +4,11 @@ coverage
 
 # IntelliJ/WebStorm
 /.idea
+*/.idea
 
 # JS
 *.js
 *.js.map
 
 # dist
-/dist
+*/dist
