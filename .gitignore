@@ -12,3 +12,4 @@ coverage
 
 # dist
 */dist
+!/1-getting-started/js-only.js
