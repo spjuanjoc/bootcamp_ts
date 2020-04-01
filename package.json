@@ -1,0 +1,23 @@
+{
+  "name": "bootcamp_ts",
+  "version": "1.0.0",
+  "description": "Create a \"Hello World\" project in TypeScript using WebStorm IDE from  JetBrains.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spjuanjoc/bootcamp_ts.git"
+  },
+  "author": "juan.castellanos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spjuanjoc/bootcamp_ts/issues"
+  },
+  "homepage": "https://github.com/spjuanjoc/bootcamp_ts#readme",
+  "devDependencies": {
+    "lite-server": "^2.5.4"
+  }
+}
