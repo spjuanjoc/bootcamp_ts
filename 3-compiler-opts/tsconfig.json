@@ -11,7 +11,8 @@
 //    ],
     "outDir": "../dist", /* where .js files are generated*/
     "rootDir": "./src",
-    "removeComments": true /* don't show the comments in the file.js */
+    "removeComments": true, /* don't show the comments in the file.js */
+    "strict": true
   },
   "exclude": [
     "node_modules"
