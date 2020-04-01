@@ -12,5 +12,9 @@ coverage
 
 # dist
 */dist
+
+# Don't ignore js example
 !/1-getting-started/js-only.js
-!/package-lock.json
+
+#
+package-lock.json
