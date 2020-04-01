@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true, /* show the file.js in browser debugger*/
+//    "lib": [
+//      "dom",
+//      "es6",
+//      "dom.iterable",
+//      "scripthost"      /* Core JS features*/
+//    ],
+    "outDir": "../dist", /* where .js files are generated*/
+    "rootDir": "./src",
+    "removeComments": true /* don't show the comments in the file.js */
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
