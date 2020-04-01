@@ -1,6 +1,6 @@
 console.log("Module 5.Classes and interfaces");
 console.log("5.Statics");
-
+{
 class Department {
 
     constructor(protected name: string, protected subdept: string = "") {
@@ -35,3 +35,4 @@ class Department {
 const it = new Department('Main', "Sub");
 console.log(it);
 Department.manager();
+}

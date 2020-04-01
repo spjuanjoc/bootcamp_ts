@@ -1,14 +1,15 @@
 console.log("Module 5.Classes and interfaces");
-console.log("5.Statics");
-
+console.log("2.Inheritance");
+{
 class Department {
 
-    constructor(protected name: string, protected subdept: string = "") {
+    constructor(private name: string, private readonly subdept: string = "") {
         this.name = name;
         this.subdept = subdept;
     }
 
     elaborate() {
+        console.log(`Literal string ${this.name}`);
         console.log(" Department is: " + this.name);
     }
 
@@ -23,15 +24,19 @@ class Department {
         console.log("Names: ");
         console.log(this.employees);
     }
-
-    //statics
-    static year = 2020;
-    static manager(){
-        console.log("This is the manager in: " + this.year.toString());
-    }
 }
 
+class SubDepartment extends Department{
+    admins:string[] ;
+    constructor(id:string, admins:string[]) {
+        super(id,'SUB');
+        this.admins = admins;
 
-const it = new Department('Main', "Sub");
+    }
+}
+const dept = new Department('Software', 'Elections');
+console.log(dept);
+
+const it = new SubDepartment('IT', ['Admin']);
 console.log(it);
-Department.manager();
+}

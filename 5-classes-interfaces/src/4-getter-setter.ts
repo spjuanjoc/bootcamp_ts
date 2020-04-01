@@ -1,6 +1,6 @@
 console.log("Module 5.Classes and interfaces");
-console.log("5.Statics");
-
+console.log("4.Getters and Setters");
+{
 class Department {
 
     constructor(protected name: string, protected subdept: string = "") {
@@ -23,15 +23,30 @@ class Department {
         console.log("Names: ");
         console.log(this.employees);
     }
+}
 
-    //statics
-    static year = 2020;
-    static manager(){
-        console.log("This is the manager in: " + this.year.toString());
+class SubDepartment extends Department{
+    admins:string[] ;
+    constructor(id:string, admins:string[]) {
+        super(id,'SUB');
+        this.admins = admins;
+    }
+
+    //getter
+    get currentName(){
+        return this.name;
+    }
+
+    //setter
+    set currentName(value:string){
+        this.name = value;
     }
 }
 
-
-const it = new Department('Main', "Sub");
+const it = new SubDepartment('IT', ['Admin']);
 console.log(it);
-Department.manager();
+it.elaborate();
+console.log(`current name: ${it.currentName}` );
+it.currentName = "newName";
+console.log(`named changed to: ${it.currentName}` );
+}

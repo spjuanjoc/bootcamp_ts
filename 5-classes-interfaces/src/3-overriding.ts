@@ -1,6 +1,6 @@
 console.log("Module 5.Classes and interfaces");
-console.log("5.Statics");
-
+console.log("3.Overriding");
+{
 class Department {
 
     constructor(protected name: string, protected subdept: string = "") {
@@ -23,15 +23,23 @@ class Department {
         console.log("Names: ");
         console.log(this.employees);
     }
+}
 
-    //statics
-    static year = 2020;
-    static manager(){
-        console.log("This is the manager in: " + this.year.toString());
+class SubDepartment extends Department{
+    admins:string[] ;
+    constructor(id:string, admins:string[]) {
+        super(id,'SUB');
+        this.admins = admins;
+    }
+
+    //overriding methods
+    elaborate() {
+        this.name = 'sub_' + this.name;
+        console.log("sub-elaborate called instead: " + this.name);
     }
 }
 
-
-const it = new Department('Main', "Sub");
+const it = new SubDepartment('IT', ['Admin']);
 console.log(it);
-Department.manager();
+it.elaborate();
+}
