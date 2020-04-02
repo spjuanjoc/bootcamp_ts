@@ -1,6 +1,6 @@
 console.log("Module 5.Classes and interfaces");
 console.log("8-2.Interfaces-extend");
-
+{
 interface IPrinter {
     id:string;
     print(message:string):void;
@@ -35,3 +35,4 @@ m.print("Hello interfaces");
 m.scan("Image1");
 m.setMachineName("MachineName");
 console.log(m);
+}
