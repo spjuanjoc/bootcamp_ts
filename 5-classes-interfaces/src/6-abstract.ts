@@ -1,6 +1,6 @@
 console.log("Module 5.Classes and interfaces");
-console.log("7.Private ctor");
-
+console.log("6.Abstract");
+{
 abstract class Department {
 
     constructor(protected name: string, protected subdept: string = "") {
@@ -24,34 +24,20 @@ abstract class Department {
 
     //statics
     static year = 2020;
-
-    static manager() {
+    static manager(){
         console.log("This is the manager in: " + this.year.toString());
     }
 }
 
-class SubDepartment extends Department {
-
-    private static instance: SubDepartment;
-
-    static getInstance() {
-        if (!SubDepartment.instance) {
-            SubDepartment.instance = new SubDepartment("", "");
-        }
-        return SubDepartment.instance;
+class SubDepartment extends Department{
+    constructor(name, sub) {
+        super(name,sub);
     }
-
-    private constructor(name, sub) {
-        super(name, sub);
-    }
-
     elaborate() {
         console.log(" Department is: " + this.name);
     }
 }
 
-// const obj = new SubDepartment('Main', "Sub");
-const obj = SubDepartment.getInstance();
-console.log(obj);
-obj.addEmployees("Jane Doe");
-obj.showEmployees();
+const it = new SubDepartment('Main', "Sub");
+console.log(it);
+}

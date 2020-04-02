@@ -1,6 +1,6 @@
 console.log("Module 5.Classes and interfaces");
 console.log("7.Private ctor");
-
+{
 abstract class Department {
 
     constructor(protected name: string, protected subdept: string = "") {
@@ -55,3 +55,4 @@ const obj = SubDepartment.getInstance();
 console.log(obj);
 obj.addEmployees("Jane Doe");
 obj.showEmployees();
+}
