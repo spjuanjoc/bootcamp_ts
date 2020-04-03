@@ -1,25 +1,22 @@
 console.log("8.Decorators");
 console.log("4.Factory-2");
-
-function DecoratorFactory3(title:string, hookId:string){
-    return function(ctor: any){
+{
+function DecoratorFactory2(title:string, hookId:string){
+    return function(ctor: Function){
         const hookElement = document.getElementById(hookId);
-        const p = new ctor();
         if(hookElement){
             hookElement.innerHTML = title;
-            //search h1 in title
-            hookElement.querySelector('h1').textContent = p.name;
         }
         else{
-            console.log('Elem not found');
+            console.log('Elem not found again');
         }
     };
 }
 
 // @DecoratorFactory2('Decorator title','section')
-@DecoratorFactory3('<h1>Decorator title</h1>','section')
+@DecoratorFactory2('<h1>Decorator title</h1>','section')
 class Person{
-    name = 'PersonName';
+    name = 'Jane';
 
     constructor() {
         console.log('Person ctor');
@@ -28,3 +25,4 @@ class Person{
 
 const p = new Person();
 console.log(p);
+}

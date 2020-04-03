@@ -1,8 +1,16 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es5",
-    "sourceMap": true
+    "target": "es6",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ScriptHost"
+    ],
+    "sourceMap": true,
+    "outDir": "../dist",
+//    "rootDir": "./src",
+    "experimentalDecorators": true
   },
   "exclude": [
     "node_modules"
