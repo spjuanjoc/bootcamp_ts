@@ -1,5 +1,5 @@
 console.log("8.Decorators");
-console.log("9.2.Validations part 2");
+console.log("9.Validations part 1");
 
 class User {
 
@@ -7,14 +7,6 @@ class User {
         this.name = name;
         this.age = age;
     }
-}
-
-function validate(obj: object):boolean {
-    //if name.empty
-    // return false
-    // if age <= 0
-    // return false
-    return true;
 }
 
 const form1 = document.getElementById("iform");
@@ -29,10 +21,6 @@ if (form1) {
         const age = +hage.value;
 
         const user = new User(name, age);
-
-        if(!validate(user)){
-            alert('Wrong input');
-        }
 
         console.log(user)
     })
