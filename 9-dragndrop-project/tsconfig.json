@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ScriptHost",
+      "ES6"
+    ],
+    "sourceMap": true,
+    "outDir": "../dist"
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "./src/app.ts"
+  ]
+}
