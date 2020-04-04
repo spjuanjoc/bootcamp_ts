@@ -128,10 +128,13 @@ class ProjectList {
     private refreshList() {
         const listElement = document.getElementById(`${this.type}-projects-list`) as HTMLUListElement;
 
-        for (const item of this.projectsList) {
-            const listItem = document.createElement('li');
-            listItem.textContent = item.title;
-            listElement.appendChild(listItem);
+        if (listElement) {
+            for (const item of this.projectsList) {
+                const listItem = document.createElement('li');
+                listItem.textContent = item.title;
+
+                listElement.appendChild(listItem);
+            }
         }
     }
 }
