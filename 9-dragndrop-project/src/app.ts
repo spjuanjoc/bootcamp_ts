@@ -1,6 +1,24 @@
 console.log('9.Drag adn drop project');
 console.log('5.push-project');
 
+//Validate decorator
+interface Valid {
+    value;
+    required?;
+    minStrLength?;
+    maxStrLength?;
+    minNum?;
+    maxNum?;
+}
+
+function validate(valid: Valid) {
+    let isValid = true;
+    if (valid.required) {
+        isValid = isValid && valid.value.trim().length != 0;
+    }
+    return isValid;
+}
+
 class ProjectInput {
     templateElement: HTMLTemplateElement;
     divHostElement: HTMLDivElement;
@@ -10,6 +28,8 @@ class ProjectInput {
     htitle: HTMLInputElement;
     hdescription: HTMLInputElement;
     hpeoplelist: HTMLInputElement;
+    activeProjects: ProjectList;
+    finishedProjects: ProjectList;
 
     constructor() {
         this.templateElement = document.getElementById('project-input')! as HTMLTemplateElement;
@@ -25,6 +45,8 @@ class ProjectInput {
         this.hdescription = this.element.querySelector('#description') as HTMLInputElement;//# query by id
         this.hpeoplelist = this.element.querySelector('#people') as HTMLInputElement;//# query by id
 
+        this.activeProjects = new ProjectList('active');
+        this.finishedProjects = new ProjectList('finished');
         this.listenSubmitButton();
         this.loadElement();
     }
@@ -35,7 +57,7 @@ class ProjectInput {
         if (Array.isArray(input)) {
             const [title, descr, plist] = input;
             console.log(title, descr, plist);
-            ProjectState.pushProject(title, descr, plist);
+            this.activeProjects.state.pushProject(title, descr, plist);
             this.cleanup();
         }
         // console.log(this.htitle.value);
@@ -72,23 +94,6 @@ class ProjectInput {
     }
 }
 
-//Validate decorator
-interface Valid {
-    value;
-    required?;
-    minStrLength?;
-    maxStrLength?;
-    minNum?;
-    maxNum?;
-}
-
-function validate(valid: Valid) {
-    let isValid = true;
-    if (valid.required) {
-        isValid = isValid && valid.value.trim().length != 0;
-    }
-    return isValid;
-}
 
 //Project list
 class ProjectList {
@@ -97,6 +102,7 @@ class ProjectList {
     // inside node
     element: HTMLFormElement;
     projectsList = [];
+    state: ProjectState;
 
     constructor(private type: 'active' | 'finished') {
         this.templateElement = document.getElementById('project-list') as HTMLTemplateElement;
@@ -105,8 +111,9 @@ class ProjectList {
 
         this.element = node.firstElementChild as HTMLFormElement;
         this.element.id = `${this.type}-projects`;
+        this.state = new ProjectState();
 
-        ProjectState.addListener((projects) => {
+        this.state.addListener((projects) => {
             this.projectsList = projects;
             this.refreshList();
         });
@@ -138,13 +145,13 @@ class ProjectList {
 
 //
 class ProjectState {
-    private static projectsList: any[] = [];
-    private static listeners: any[] = [];
+    private projectsList: any[] = [];
+    private listeners: any[] = [];
 
     constructor() {
     }
 
-    static pushProject(title, description, peopleList) {
+    pushProject(title, description, peopleList) {
         console.log('Project pushed');
         const project = {
             id: Math.random().toString(),
@@ -153,22 +160,22 @@ class ProjectState {
             peopleList: peopleList
         };
 
-        ProjectState.projectsList.push(project);
-        console.log(ProjectState.projectsList);
+        this.projectsList.push(project);
+        console.log(this.projectsList);
 
-        for (const listenerCallback of ProjectState.listeners) {
-            listenerCallback(ProjectState.projectsList.slice());// slice: return only a copy, don't modify
+        for (const listenerCallback of this.listeners) {
+            listenerCallback(this.projectsList.slice());// slice: return only a copy, don't modify
         }
     }
 
-    static addListener(listenerCallback) {
-        ProjectState.listeners.push(listenerCallback);
+    addListener(listenerCallback) {
+        this.listeners.push(listenerCallback);
     }
 
 }
 
 //Load the form when instantiated
 const main = new ProjectInput();
-const activeList = new ProjectList('active');
-const finishedList = new ProjectList('finished');
-const projectsList = new ProjectState();
+// const activeList = new ProjectList('active');
+// const finishedList = new ProjectList('finished');
+// const projectsList = new ProjectState();
