@@ -19,6 +19,7 @@ function validate(valid: Valid) {
     return isValid;
 }
 
+///
 class ProjectInput {
     templateElement: HTMLTemplateElement;
     divHostElement: HTMLDivElement;
@@ -46,7 +47,7 @@ class ProjectInput {
         this.hpeoplelist = this.element.querySelector('#people') as HTMLInputElement;//# query by id
 
         this.activeProjects = new ProjectList('active');
-        this.finishedProjects = new ProjectList('finished');
+        // this.finishedProjects = new ProjectList('finished');
         this.listenSubmitButton();
         this.loadElement();
     }
@@ -94,7 +95,6 @@ class ProjectInput {
     }
 }
 
-
 //Project list
 class ProjectList {
     templateElement: HTMLTemplateElement;
@@ -134,7 +134,7 @@ class ProjectList {
 
     private refreshList() {
         const listElement = document.getElementById(`${this.type}-projects-list`) as HTMLUListElement;
-
+        listElement.innerHTML = '';
         for (const item of this.projectsList) {
             const listItem = document.createElement('li');
             listItem.textContent = item.title;
