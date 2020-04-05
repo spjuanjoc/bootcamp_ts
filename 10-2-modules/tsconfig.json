@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "ES2015",/*"commonjs",*/
+    "target": "es6",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES6",
+      "ScriptHost"
+    ],
+    "sourceMap": true,
+    "outDir": "../dist",
+    "rootDir": "./src"
+//    "outFile": "../dist/index.js"
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

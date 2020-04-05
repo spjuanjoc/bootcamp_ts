@@ -1,8 +1,7 @@
 /// <reference path="move-box-ns.ts" />
 /// <reference path="project/input.ts" />
 
-console.log('10.Modules and namespaces');
-console.log('1.Namespaces');
+console.log('10.1.Namespaces');
 
 namespace moveBox {
     class Box {
