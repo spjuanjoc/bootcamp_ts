@@ -1,5 +1,5 @@
 console.log('9.Drag adn drop project');
-console.log('5.push-project');
+console.log('6.projects-list');
 
 //Validate decorator
 interface Valid {
@@ -176,6 +176,3 @@ class ProjectState {
 
 //Load the form when instantiated
 const main = new ProjectInput();
-// const activeList = new ProjectList('active');
-// const finishedList = new ProjectList('finished');
-// const projectsList = new ProjectState();
