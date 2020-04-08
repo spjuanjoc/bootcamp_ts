@@ -1,11 +1,19 @@
 import React from "react";
+import './TodoList.css'
 
-const TodoList: React.FC = () => {
-    const todos = [{id: 't1', text: 'First entry'}];
+interface ITodo {
+    items: { id: string, text: string }[];
+    onRemove: (id: string) => void;
+}
+
+const TodoList: React.FC<ITodo> = (props) => {
     return (
         <ul>
-            {todos.map(todo => (
-                <li key={todo.id}>{todo.text}</li>
+            {props.items.map(todo => (
+                <li key={todo.id}>
+                    <span>{todo.text}</span>
+                    <button onClick={props.onRemove.bind(null, todo.id)}>Remove entry</button>
+                </li>
             ))}
         </ul>
     );
