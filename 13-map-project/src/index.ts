@@ -8,7 +8,7 @@ hform.addEventListener('submit', search);
 // function search(event) {
 //     event.preventDefault();
 //     console.log('Searching...');
-//     const addressInfo = haddress.value;
+//     const addressInfo = haddress.value;// Google maps API
 //
 //     //Call maps API
 // }
@@ -31,7 +31,7 @@ function search(event: Event) {
         ],
         view: new ol.View({
             center: ol.proj.fromLonLat([coordinates.longitude, coordinates.latitude]),
-            zoom: 16
+            zoom: 8
         })
     });
 }
